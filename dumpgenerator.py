@@ -1463,8 +1463,9 @@ def getWikiEngine(url=''):
         wikiengine = 'DokuWiki'
     elif re.search(ur'(?im)(alt="Powered by MediaWiki"|<meta name="generator" content="MediaWiki)', result):
         wikiengine = 'MediaWiki'
-    elif re.search(ur'(?im)(>MoinMoin Powered</a>)', result):
+    elif re.search(ur'(?im)(>MoinMoin Powered</a>)|<option value="LocalSiteMap">', result):
         wikiengine = 'MoinMoin'
+    elif re.search(ur'
 
     return wikiengine
 
