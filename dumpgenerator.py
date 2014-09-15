@@ -1465,7 +1465,8 @@ def getWikiEngine(url=''):
         wikiengine = 'MediaWiki'
     elif re.search(ur'(?im)(>MoinMoin Powered</a>)|<option value="LocalSiteMap">', result):
         wikiengine = 'MoinMoin'
-    elif re.search(ur'
+    elif re.search(ur'(?im)twikiCurrentTopicLink|twikiCurrentWebHomeLink|twikiLink', result):
+        wikiengine = 'TWiki'
 
     return wikiengine
 
