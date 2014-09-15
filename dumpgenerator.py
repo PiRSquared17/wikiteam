@@ -1467,6 +1467,8 @@ def getWikiEngine(url=''):
         wikiengine = 'MoinMoin'
     elif re.search(ur'(?im)twikiCurrentTopicLink|twikiCurrentWebHomeLink|twikiLink', result):
         wikiengine = 'TWiki'
+    elif re.search(ur'(?im)<!--PageHeaderFmt-->', result):
+        wikiengine = 'PmWiki'
 
     return wikiengine
 
