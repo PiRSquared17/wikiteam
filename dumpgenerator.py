@@ -1471,7 +1471,7 @@ def getWikiEngine(url=''):
         wikiengine = 'PmWiki'
     elif re.search(ur'(?im)(<meta name="generator" content="PhpWiki|<meta name="PHPWIKI_VERSION)'):
         wikiengine = 'PhpWiki'
-    elif re.search(ur'(?im)(<meta name="generator" content="Tiki Wiki|Powered by <a href="http://tiki\.org"(')
+    elif re.search(ur'(?im)(<meta name="generator" content="Tiki Wiki|Powered by <a href="http://tiki\.org")')
         wikiengine = 'TikiWiki'
 
     return wikiengine
