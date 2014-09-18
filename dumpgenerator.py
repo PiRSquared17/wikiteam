@@ -1473,6 +1473,8 @@ def getWikiEngine(url=''):
         wikiengine = 'PhpWiki'
     elif re.search(ur'(?im)(<meta name="generator" content="Tiki Wiki|Powered by <a href="http://tiki\.org")', result):
         wikiengine = 'TikiWiki'
+    elif re.search(ur'(?im)(foswikiNoJs|<meta name="foswiki\.|foswikiTable|foswikiContentFooter)', result):
+        wikiengine = 'FosWiki'
 
     return wikiengine
 
