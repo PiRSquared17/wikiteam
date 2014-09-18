@@ -1459,16 +1459,20 @@ def getWikiEngine(url=''):
     result = r.text
 
     wikiengine = 'Unknown'
-    if re.search(ur'(?im)(<meta name="generator" content="DokuWiki)', result):
+    if re.search(ur'(?im)(<meta name="generator" content="DokuWiki)|dokuwiki__site', result):
         wikiengine = 'DokuWiki'
     elif re.search(ur'(?im)(alt="Powered by MediaWiki"|<meta name="generator" content="MediaWiki)', result):
         wikiengine = 'MediaWiki'
-    elif re.search(ur'(?im)(>MoinMoin Powered</a>)|<option value="LocalSiteMap">', result):
+    elif re.search(ur'(?im)(>MoinMoin Powered</a>|<option value="LocalSiteMap">)', result):
         wikiengine = 'MoinMoin'
-    elif re.search(ur'(?im)twikiCurrentTopicLink|twikiCurrentWebHomeLink|twikiLink', result):
+    elif re.search(ur'(?im)(twikiCurrentTopicLink|twikiCurrentWebHomeLink|twikiLink)', result):
         wikiengine = 'TWiki'
-    elif re.search(ur'(?im)<!--PageHeaderFmt-->', result):
+    elif re.search(ur'(?im)(<!--PageHeaderFmt-->)', result):
         wikiengine = 'PmWiki'
+    elif re.search(ur'(?im)(<meta name="generator" content="PhpWiki|<meta name="PHPWIKI_VERSION)'):
+        wikiengine = 'PhpWiki'
+    elif re.search(ur'(?im)(<meta name="generator" content="Tiki Wiki|Powered by <a href="http://tiki\.org"(')
+        wikiengine = 'TikiWiki'
 
     return wikiengine
 
